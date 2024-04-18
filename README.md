@@ -1,4 +1,5 @@
-# socail media post management website built with django4 and react.
+## social media post management website built with django4 and react.
+
 
 the front end of this project is under development to run the backend use the next commands.  
 
