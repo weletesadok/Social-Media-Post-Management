@@ -11,26 +11,15 @@ from core.auth.viewsets import (
 from core.comment.viewsets import CommentViewSet
 
 router = routers.SimpleRouter()
-
-# ##################################################################### #
-# ################### AUTH                       ###################### #
-# ##################################################################### #
-
 router.register(r"auth/register", RegisterViewSet, basename="auth-register")
 router.register(r"auth/login", LoginViewSet, basename="auth-login")
 router.register(r"auth/refresh", RefreshViewSet, basename="auth-refresh")
 router.register(r"auth/logout", LogoutViewSet, basename="auth-logout")
 
 
-# ##################################################################### #
-# ################### USER                       ###################### #
-# ##################################################################### #
-
 router.register(r"user", UserViewSet, basename="user")
 
-# ##################################################################### #
-# ################### POST                       ###################### #
-# ##################################################################### #
+
 
 router.register(r"post", PostViewSet, basename="post")
 
