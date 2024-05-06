@@ -34,7 +34,7 @@ To get started with the project, follow these steps:
 - Navigate to the `backend` directory.
 - Install dependencies:
   ```
-  pip install -r requirements.txt
+  pip install -r dependencies.txt
   ```
 - Run migrations:
   ```
