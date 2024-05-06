@@ -16,7 +16,7 @@ class UserSerializer(AbstractSerializer):
         if not representation["avatar"]:
             representation["avatar"] = settings.DEFAULT_AVATAR_URL
             return representation
-        if settings.DEBUG:  # debug enabled for dev
+        if settings.DEBUG: 
             request = self.context.get("request")
             representation["avatar"] = request.build_absolute_uri(
                 representation["avatar"]
@@ -25,7 +25,6 @@ class UserSerializer(AbstractSerializer):
 
     class Meta:
         model = User
-        # List of all the fields that can be included in a request or a response
         fields = [
             "id",
             "username",
@@ -40,5 +39,4 @@ class UserSerializer(AbstractSerializer):
             "updated",
             "posts_count",
         ]
-        # List of all the fields that can only be read by the user
         read_only_field = ["is_active"]

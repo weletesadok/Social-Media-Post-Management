@@ -57,7 +57,6 @@ class CommentSerializer(AbstractSerializer):
 
     class Meta:
         model = Comment
-        # List of all the fields that can be included in a request or a response
         fields = [
             "id",
             "post",

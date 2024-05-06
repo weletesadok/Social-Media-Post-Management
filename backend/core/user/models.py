@@ -9,13 +9,11 @@ from core.abstract.models import AbstractModel, AbstractManager
 
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return "user_{0}/{1}".format(instance.public_id, filename)
 
 
 class UserManager(BaseUserManager, AbstractManager):
     def create_user(self, username, email, password=None, **kwargs):
-        """Create and return a `User` with an email, phone number, username and password."""
         if username is None:
             raise TypeError("Users must have a username.")
         if email is None:
@@ -32,9 +30,6 @@ class UserManager(BaseUserManager, AbstractManager):
         return user
 
     def create_superuser(self, username, email, password, **kwargs):
-        """
-        Create and return a `User` with superuser (admin) permissions.
-        """
         if password is None:
             raise TypeError("Superusers must have a password.")
         if email is None:
@@ -80,25 +75,19 @@ class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
         return f"{self.first_name} {self.last_name}"
 
     def like_post(self, post):
-        """Like `post` if it hasn't been done yet"""
         return self.posts_liked.add(post)
 
     def remove_like_post(self, post):
-        """Remove a like from a `post`"""
         return self.posts_liked.remove(post)
 
     def has_liked_post(self, post):
-        """Return True if the user has liked a `post`; else False"""
         return self.posts_liked.filter(pk=post.pk).exists()
 
     def like_comment(self, comment):
-        """Like `comment` if it hasn't been done yet"""
         return self.comments_liked.add(comment)
 
     def remove_like_comment(self, comment):
-        """Remove a like from a `comment`"""
         return self.comments_liked.remove(comment)
 
     def has_liked_comment(self, comment):
-        """Return True if the user has liked a `comment`; else False"""
         return self.comments_liked.filter(pk=comment.pk).exists()
