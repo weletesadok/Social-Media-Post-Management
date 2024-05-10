@@ -1,8 +1,10 @@
 */__pycache__/
+*/*/__pycache__/
 */.venv/
 */db.sqlite3
 */tests.py 
 */migrations/
+db.sqlite3
 
 
 # Logs

@@ -26,6 +26,7 @@ function SinglePost() {
             {comments.data &&
               comments.data.results.map((comment, index) => (
                 <Comment
+                  className="text-white bg-black"
                   key={index}
                   postId={post.data.id}
                   comment={comment}

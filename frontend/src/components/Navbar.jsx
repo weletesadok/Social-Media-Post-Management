@@ -24,10 +24,16 @@ function NavigationBar() {
   };
 
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar
+      bg="primary"
+      variant="dark"
+      style={{
+        background: "linear-gradient(to left, red, blue)",
+      }}
+    >
       <Container>
         <Navbar.Brand className="fw-bold" as={Link} to={`/`}>
-          Postagram
+          Home
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
